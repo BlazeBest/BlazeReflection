@@ -66,14 +66,14 @@ namespace BlazeReflection
             return (bool)QuickMenuUtils.get_IsOnRightHand_Method.Invoke(quickMenu, null);
         }
 
-        public static bool get_SelectedUser(this QuickMenu quickMenu)
+        public static APIUser get_SelectedUser(this QuickMenu quickMenu)
         {
-            return (bool)QuickMenuUtils.get_SelectedUser_Method.Invoke(quickMenu, null);
+            return (APIUser)QuickMenuUtils.get_SelectedUser_Method.Invoke(quickMenu, null);
         }
 
-        public static bool set_SelectedUser(this QuickMenu quickMenu, APIUser value)
+        public static void set_SelectedUser(this QuickMenu quickMenu, APIUser value)
         {
-            return (bool)QuickMenuUtils.set_SelectedUser_Method.Invoke(quickMenu, new object[] { (APIUser)value });
+            QuickMenuUtils.set_SelectedUser_Method.Invoke(quickMenu, new object[] { (APIUser)value });
         }
 
         private static MethodInfo get_canRecvReqInvite_Method;
