@@ -19,7 +19,7 @@ namespace BlazeReflection
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(QuickMenu).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_Instance");
-                QuickMenuUtils.get_canRecvReqInvite_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                QuickMenuUtils.get_Instance_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(QuickMenu).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_IsActive");
