@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using System.Linq;
 using Photon.Pun;
+using ExitGames.Client.Photon;
 
 namespace BlazeReflection
 {
@@ -16,6 +17,10 @@ namespace BlazeReflection
                 propertyBuffer = null;
                 propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_Controller");
                 PhotonViewUtils.get_Controller_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                PhotonViewUtils.photonPlayerType = ((propertyBuffer != null) ? propertyBuffer.PropertyType : null);
+
+                propertyBuffer = photonPlayerType.GetProperties().FirstOrDefault((PropertyInfo p) => p.PropertyType == typeof(Hashtable));
+                PhotonViewUtils.get_Hashtable_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_ControllerActorNr");
@@ -76,6 +81,8 @@ namespace BlazeReflection
                 propertyBuffer = null;
                 propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "set_ViewID");
                 PhotonViewUtils.set_ViewID_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+
+                
             }
             catch (Exception ex)
             {
@@ -86,11 +93,14 @@ namespace BlazeReflection
             }
         }
 
-        // LNLDIKCHDEL - PhotonClass
-
-        public static LNLDIKCHDEL get_Controller(this PhotonView photon)
+        public static object get_Controller(this PhotonView photon)
         {
-            return (LNLDIKCHDEL)PhotonViewUtils.get_Controller_Method.Invoke(photon, null);
+            return PhotonViewUtils.get_Controller_Method.Invoke(photon, null);
+        }
+
+        public static Hashtable get_Hashtable(this object photonPlayer)
+        {
+            return (Hashtable)PhotonViewUtils.get_Hashtable_Method.Invoke(photonPlayer, null);
         }
 
         public static int get_ControllerActorNr(this PhotonView photon)
@@ -123,9 +133,9 @@ namespace BlazeReflection
             return (bool)PhotonViewUtils.get_IsSceneView_Method.Invoke(photon, null);
         }
 
-        public static LNLDIKCHDEL get_Owner(this PhotonView photon)
+        public static object get_Owner(this PhotonView photon)
         {
-            return (LNLDIKCHDEL)PhotonViewUtils.get_Owner_Method.Invoke(photon, null);
+            return PhotonViewUtils.get_Owner_Method.Invoke(photon, null);
         }
 
         public static int get_OwnerActorNr(this PhotonView photon)
@@ -168,7 +178,11 @@ namespace BlazeReflection
             PhotonViewUtils.set_ViewID_Method.Invoke(photon, new object[] { (int)value });
         }
 
+        internal static Type photonPlayerType;
+
         private static MethodInfo get_Controller_Method;
+
+        private static MethodInfo get_Hashtable_Method;
 
         private static MethodInfo get_ControllerActorNr_Method;
 
