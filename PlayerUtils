@@ -18,10 +18,14 @@ namespace BlazeReflection
                 propertyBuffer = null;
                 propertyBuffer = typeof(VRCPlayer).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_apiPlayer");
                 PlayerUtils.get_apiPlayer_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
-                
+
+                propertyBuffer = null;
+                propertyBuffer = typeof(VRCPlayer).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_AvatarManager");
+                PlayerUtils.get_AvatarManager_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+
                 propertyBuffer = null;
                 propertyBuffer = typeof(VRCPlayer).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_player");
-                PlayerUtils.get_apiPlayer_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                PlayerUtils.get_player_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(VRCPlayer).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_SteamUserIDULong");
@@ -141,6 +145,11 @@ namespace BlazeReflection
             return (VRC_PlayerApi)PlayerUtils.get_apiPlayer_Method.Invoke(player, null);
         }
 
+        public static VRCAvatarManager get_AvatarManager(this VRCPlayer player)
+        {
+            return (VRCAvatarManager)PlayerUtils.get_AvatarManager_Method.Invoke(player, null);
+        }
+
         public static Player get_player(this VRCPlayer player)
         {
             return (Player)PlayerUtils.get_player_Method.Invoke(player, null);
@@ -159,6 +168,11 @@ namespace BlazeReflection
         public static Player get_Instance()
         {
             return (Player)PlayerUtils.get_Ping_Method.Invoke(null, null);
+        }
+
+        public static VRCAvatarManager get_AvatarManager(this Player player)
+        {
+            return (VRCAvatarManager)PlayerUtils.get_AvatarManager_Method.Invoke(player.vrcPlayer, null);
         }
 
         public static object get_PhotonPlayer(this Player player)
@@ -255,7 +269,12 @@ namespace BlazeReflection
         {
             return (string)PlayerUtils.get_statusDescription_Method.Invoke(player, null);
         }
-        
+
+        public static ulong get_SteamUserID(this Player player)
+        {
+            return (ulong)PlayerUtils.get_SteamUserID_Method.Invoke(player.vrcPlayer, null);
+        }
+
         public static APIUser get_user(this Player player)
         {
             return (APIUser)PlayerUtils.get_user_Method.Invoke(player, null);
@@ -277,6 +296,8 @@ namespace BlazeReflection
         }
 
         private static MethodInfo get_apiPlayer_Method;
+
+        private static MethodInfo get_AvatarManager_Method;
 
         private static MethodInfo get_player_Method;
 
