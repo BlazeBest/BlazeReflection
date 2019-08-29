@@ -19,7 +19,7 @@ namespace BlazeReflection
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(RoomManagerBase).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_currentOwnerId");
-                RoomManagerUtils.get_currentAuthorId_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                RoomManagerUtils.get_currentOwnerId_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
                 
                 propertyBuffer = null;
                 propertyBuffer = typeof(RoomManagerBase).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_inRoom");
@@ -31,7 +31,7 @@ namespace BlazeReflection
 
                 propertyBuffer = null;
                 propertyBuffer = typeof(RoomManagerBase).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_TimeSinceEnteredRoom");
-                RoomManagerUtils.get_metadata_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                RoomManagerUtils.get_TimeSinceEnteredRoom_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
             }
             catch (Exception ex)
             {
