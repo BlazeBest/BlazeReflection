@@ -86,11 +86,11 @@ namespace BlazeReflection
             }
         }
 
-        // JAAMJNHBFDN - PhotonClass
+        // LNLDIKCHDEL - PhotonClass
 
-        public static JAAMJNHBFDN get_Controller(this PhotonView photon)
+        public static LNLDIKCHDEL get_Controller(this PhotonView photon)
         {
-            return (JAAMJNHBFDN)PhotonViewUtils.get_Controller_Method.Invoke(photon, null);
+            return (LNLDIKCHDEL)PhotonViewUtils.get_Controller_Method.Invoke(photon, null);
         }
 
         public static int get_ControllerActorNr(this PhotonView photon)
@@ -123,9 +123,9 @@ namespace BlazeReflection
             return (bool)PhotonViewUtils.get_IsSceneView_Method.Invoke(photon, null);
         }
 
-        public static JAAMJNHBFDN get_Owner(this PhotonView photon)
+        public static LNLDIKCHDEL get_Owner(this PhotonView photon)
         {
-            return (JAAMJNHBFDN)PhotonViewUtils.get_Owner_Method.Invoke(photon, null);
+            return (LNLDIKCHDEL)PhotonViewUtils.get_Owner_Method.Invoke(photon, null);
         }
 
         public static int get_OwnerActorNr(this PhotonView photon)
