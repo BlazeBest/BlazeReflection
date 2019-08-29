@@ -60,7 +60,7 @@ namespace BlazeReflection
         {
             return (bool)QuickMenuUtils.get_IsActive_Method.Invoke(quickMenu, null);
         }
-        
+
         public static bool get_IsOnRightHand(this QuickMenu quickMenu)
         {
             return (bool)QuickMenuUtils.get_IsOnRightHand_Method.Invoke(quickMenu, null);
