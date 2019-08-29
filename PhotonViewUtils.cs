@@ -14,67 +14,67 @@ namespace BlazeReflection
                 PropertyInfo propertyBuffer;
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_Controller");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_Controller");
                 PhotonViewUtils.get_Controller_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_ControllerActorNr");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_ControllerActorNr");
                 PhotonViewUtils.get_ControllerActorNr_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_CreatorActorNr");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_CreatorActorNr");
                 PhotonViewUtils.get_CreatorActorNr_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_InstantiationData");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_InstantiationData");
                 PhotonViewUtils.get_InstantiationData_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_IsMine");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_IsMine");
                 PhotonViewUtils.get_IsMine_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_IsOwnerActive");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_IsOwnerActive");
                 PhotonViewUtils.get_IsOwnerActive_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_IsSceneView");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_IsSceneView");
                 PhotonViewUtils.get_IsSceneView_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_Owner");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_Owner");
                 PhotonViewUtils.get_Owner_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_OwnerActorNr");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_OwnerActorNr");
                 PhotonViewUtils.get_OwnerActorNr_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_OwnershipWasTransfered");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_OwnershipWasTransfered");
                 PhotonViewUtils.get_OwnershipWasTransfered_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_Prefix");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_Prefix");
                 PhotonViewUtils.get_Prefix_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "get_ViewID");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_ViewID");
                 PhotonViewUtils.get_ViewID_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "set_InstantiationData");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "set_InstantiationData");
                 PhotonViewUtils.set_InstantiationData_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "set_OwnershipWasTransfered");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "set_OwnershipWasTransfered");
                 PhotonViewUtils.set_OwnershipWasTransfered_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "set_Prefix");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "set_Prefix");
                 PhotonViewUtils.set_Prefix_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(PhotonView).GetProperties().First((PropertyInfo p) => p.GetGetMethod().Name == "set_ViewID");
+                propertyBuffer = typeof(PhotonView).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "set_ViewID");
                 PhotonViewUtils.set_ViewID_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
             }
             catch (Exception ex)
