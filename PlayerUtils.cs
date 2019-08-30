@@ -4,6 +4,7 @@ using System.Linq;
 using VRCSDK2;
 using VRC;
 using VRC.Core;
+using ExitGames.Client.Photon;
 using Player = VRC.Player;
 
 namespace BlazeReflection
@@ -43,7 +44,7 @@ namespace BlazeReflection
                 propertyBuffer = null;
                 propertyBuffer = typeof(Player).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_PhotonPlayer");
                 PlayerUtils.get_PhotonPlayer_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
-                
+
                 propertyBuffer = null;
                 propertyBuffer = typeof(Player).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_isBlockedEitherWay");
                 PlayerUtils.get_isBlockedEitherWay_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
@@ -191,6 +192,12 @@ namespace BlazeReflection
         public static object get_PhotonPlayer(this Player player)
         {
             return PlayerUtils.get_PhotonPlayer_Method.Invoke(player, null);
+        }
+
+        public static Hashtable get_HashtablePlayer(this Player player)
+        {
+            object photonPlayer = get_PhotonPlayer(player);
+            return (Hashtable)PhotonViewUtils.get_Hashtable(photonPlayer);
         }
 
         public static bool get_isBlockedEitherWay(this Player player)
