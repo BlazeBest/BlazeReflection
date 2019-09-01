@@ -14,10 +14,6 @@ namespace BlazeReflection
                 PropertyInfo propertyBuffer;
 
                 propertyBuffer = null;
-                propertyBuffer = typeof(QuickMenu).GetProperties().FirstOrDefault((PropertyInfo p) => p.PropertyType == typeof(QuickMenu));
-                QuickMenuUtils.get_Instance_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
-
-                propertyBuffer = null;
                 propertyBuffer = typeof(QuickMenu).GetProperties().FirstOrDefault((PropertyInfo p) => p.GetGetMethod().Name == "get_canRecvReqInvite");
                 QuickMenuUtils.get_canRecvReqInvite_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
 
@@ -46,11 +42,6 @@ namespace BlazeReflection
             }
         }
 
-        public static QuickMenu get_Instance()
-        {
-            return (QuickMenu)QuickMenuUtils.get_Instance_Method.Invoke(null, null);
-        }
-
         public static bool get_canRecvReqInvite(this QuickMenu quickMenu)
         {
             return (bool)QuickMenuUtils.get_canRecvReqInvite_Method.Invoke(quickMenu, null);
@@ -75,8 +66,6 @@ namespace BlazeReflection
         {
             QuickMenuUtils.set_SelectedUser_Method.Invoke(quickMenu, new object[] { (APIUser)value });
         }
-
-        private static MethodInfo get_Instance_Method;
 
         private static MethodInfo get_canRecvReqInvite_Method;
 
