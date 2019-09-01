@@ -31,6 +31,19 @@ namespace BlazeReflection
             }
         }
 
+        public static QuickMenu QuickMenu
+        {
+            get
+            {
+                if (get_QuickMenu_Method == null)
+                {
+                    PropertyInfo propertyBuffer = typeof(QuickMenu).GetProperties().FirstOrDefault((PropertyInfo p) => p.PropertyType == typeof(QuickMenu));
+                    get_QuickMenu_Method = ((propertyBuffer != null) ? propertyBuffer.GetGetMethod() : null);
+                }
+                return (QuickMenu)get_QuickMenu_Method.Invoke(null, null);
+            }
+        }
+
         public static VRCApplicationSetup VRCApplicationSetup
         {
             get
@@ -87,6 +100,8 @@ namespace BlazeReflection
 
         private static MethodInfo get_NotificationManager_Method;
 
+        private static MethodInfo get_QuickMenu_Method;
+        
         private static MethodInfo get_VRCApplicationSetup_Method;
 
         private static MethodInfo get_VRCFlowManager_Method;
